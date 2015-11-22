@@ -101,3 +101,17 @@ language:
 # There are no globals in ge. The standard library must be
 # imported explicitly
 ```
+
+## Combining functions
+Since `ge` doesn't have any built-ins, output must be passed from one place to
+another without modifying the original value. In order to achieve this, the
+`pipe` operator exists. This can take a single value, or multiple values over
+time. Values are modified whenever they are passed in:
+```sh
+[ 'hello', 'world' ]
+  |> map       # iterate over each value in the array
+  |> reverse   # reverse the sequence of each word
+  |> join      # join all values together
+  |> echo      # print to stdout
+  # => ollehdlrow
+```
